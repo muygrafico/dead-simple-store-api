@@ -29,5 +29,12 @@ module DeadSimpleStoreApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # To make sure everything will work, the contents of the lib directory
+    # have to be included when the Rails applciation loads:
+    # Read more at https://www.pluralsight.com/guides/ruby-ruby-on-rails/token-based-authentication-with-ruby-on-rails-5-api#JRuU5Qaj5D0AWEVf.99
+    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
+    config.read_encrypted_secrets = true
   end
 end
