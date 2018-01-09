@@ -17,7 +17,12 @@ gem 'puma', '~> 3.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+# JSON Web Tokens are an open, industry standard RFC 7519
+# method for representing claims securely between two parties.
+gem 'jwt'
+# A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
+gem 'simple_command'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
