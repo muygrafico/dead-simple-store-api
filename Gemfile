@@ -23,6 +23,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 # A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
 gem 'simple_command'
+gem 'figaro'
+
+gem "shrine"
+gem "aws-sdk-s3", "~> 1.2" # for Amazon S3 storage
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,6 +44,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
