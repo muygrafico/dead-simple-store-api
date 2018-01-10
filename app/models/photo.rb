@@ -8,6 +8,20 @@
 #  updated_at :datetime         not null
 #
 
+
 class Photo < ApplicationRecord
-  include ImageUploader::Attachment.new(:image) # adds an `image` virtual attribute
+  include ImageUploader::Attachment.new(:image)
+
+  def self.process_base64(base64_data)
+    data = StringIO.new(Base64.decode64(base64_data['data']))
+    data.class.class_eval { attr_accessor :original_filename, :content_type }
+    data.original_filename = base64_data['filename']
+    data.content_type = base64_data['content_type']
+    data
+  end
+
+  #
+  # include ImageUploader::Attachment.new(self.process_base64(:image)) # adds an `image` virtual attribute
+  # include ImageUploader::Attachment.new(self.process_base64(:image))
+
 end
