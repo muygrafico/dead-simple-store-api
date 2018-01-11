@@ -1,4 +1,10 @@
 class PhotosController < ApplicationController
+  def index
+    @photos = Photo.all
+   
+    render json: @photos
+  end
+
   def new
     @photo = Photo.new
   end

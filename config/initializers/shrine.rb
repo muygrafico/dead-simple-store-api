@@ -14,11 +14,6 @@ Shrine.storages = {
   store: Shrine::Storage::S3.new(prefix: "store", **s3_options),
 }
 
-# Shrine.storages = {
-#   cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
-#   store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/store"), # permanent
-# }
-
 Shrine.plugin :activerecord # or :activerecord
 Shrine.plugin :cached_attachment_data # for forms
 Shrine.plugin :rack_file # for non-Rails apps
