@@ -1,10 +1,19 @@
+# == Schema Information
+#
+# Table name: publications
+#
+#  id            :integer          not null, primary key
+#  title         :string
+#  body          :text
+#  contactnumber :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :integer
+#  price         :integer
+#
+
 class PublicationSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :author
+  attributes :id, :title, :body, :price
    has_many :photos
-
-  def author
-    'some author'
-  end
-
-  # @newP = @publication.attributes.slice('title', 'body', 'id', 'photos')
+   has_many :comments
 end

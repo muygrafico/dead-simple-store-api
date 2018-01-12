@@ -10,10 +10,11 @@
 #  user_id        :integer
 #
 
-require 'test_helper'
+class CommentSerializer < ActiveModel::Serializer
+  attributes :id, :body, :author_id
+  belongs_to :user
 
-class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def author_id
+    object.user_id
+  end
 end
