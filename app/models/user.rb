@@ -13,4 +13,5 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :publications
+  has_many :comments
 end
