@@ -17,8 +17,10 @@ class PublicationsController < ApplicationController
   end
 
   def show
-   render json: @publication
- end
+   render json: @publication, adapter: :json
+  end
+
+
 
   private
 
