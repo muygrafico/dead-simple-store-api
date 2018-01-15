@@ -1,8 +1,8 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
-   
-    render json: @photos
+    render json: @photos, adapter: :json
+
   end
 
   def new
