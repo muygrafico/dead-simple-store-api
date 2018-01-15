@@ -13,4 +13,6 @@
 class Comment < ApplicationRecord
   belongs_to :publication
   belongs_to :user
+
+  validates_presence_of :body, :publication_id, :user_id
 end

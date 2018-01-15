@@ -6,10 +6,10 @@
 #  title         :string
 #  body          :text
 #  contactnumber :string
+#  price         :integer
+#  user_id       :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :integer
-#  price         :integer
 #
 
 require 'test_helper'

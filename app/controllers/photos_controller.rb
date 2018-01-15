@@ -35,10 +35,11 @@ end
 
   def photo_params
     process_image
-    params.require(:photo).permit(:title, :image)
+    params.require(:photo).permit(:title, :image, :publication_id)
   end
 
   def process_image
+    params[:photo][:publication_id] = 1
     params[:photo][:image] = Photo.process_base64(params[:photo][:image])
   end
 end

@@ -6,16 +6,19 @@
 #  title         :string
 #  body          :text
 #  contactnumber :string
+#  price         :integer
+#  user_id       :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :integer
-#  price         :integer
 #
 
 class Publication < ApplicationRecord
-  has_many :photos
-  has_many :comments
+  has_many :photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
+
+  # validations
+ validates_presence_of :title, :body, :user_id
 
   scope :filter_by_title, -> (keyword) {
     where('title like ?', "%#{ keyword }%")

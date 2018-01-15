@@ -10,9 +10,16 @@ s3_options = {
 }
 
 Shrine.storages = {
-  cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
-  store: Shrine::Storage::S3.new(prefix: "store", **s3_options),
+  # cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
+  cache: Shrine::Storage::FileSystem.new("cache"),
+  store: Shrine::Storage::S3.new(
+    prefix: "store",
+    upload_options: {acl: "public-read"},
+    **s3_options)
 }
+
+file_system = Shrine.storages[:cache]
+file_system.clear!(older_than: Time.now - 7*24*60*60)
 
 Shrine.plugin :activerecord # or :activerecord
 Shrine.plugin :cached_attachment_data # for forms

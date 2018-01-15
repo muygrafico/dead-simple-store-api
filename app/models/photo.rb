@@ -11,6 +11,8 @@
 #
 
 class Photo < ApplicationRecord
+  belongs_to :publication
+
   include ImageUploader::Attachment.new(:image)  # adds an `image` virtual attribute
 
   def self.process_base64(base64_data)

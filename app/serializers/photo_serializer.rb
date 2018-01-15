@@ -12,6 +12,8 @@
 
 class PhotoSerializer < ActiveModel::Serializer
   attributes :id, :filename
+  belongs_to :user
+  belongs_to :publication
 
   def filename
     @image_data = JSON.parse object.image_data
