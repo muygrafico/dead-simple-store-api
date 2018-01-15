@@ -2,21 +2,13 @@ class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :update, :destroy]
 
   def index
-    # @publications = Publication.all
-    # if params[:title].nil?
-    #   @publications = Publication.all
-    #   render json: @publications
-    # else
-    #   @publications ||= Publication.search(params)
-    #   render json: @publications
-    # end
     @publications = Publication.search(params)
     render json: @publications, adapter: :json
   end
 
   def create
     @publication = Publication.new(publication_params)
-    @publication.user_id = 1
+    @publication.user_id = @current_user.id
     if @publication.save!
       render json: {'status': 'publication created!'}
     else
