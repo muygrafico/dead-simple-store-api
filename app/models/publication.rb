@@ -21,9 +21,19 @@ class Publication < ApplicationRecord
     where('title like ?', "%#{ keyword }%")
   }
 
+  scope :filter_by_price_floor, -> (price_floor) {
+    where('price >= ?', price_floor)
+  }
+
+  scope :filter_by_price_ceil, -> (price_ceil) {
+    where('price <= ?', price_ceil)
+  }
+
   def self.search(params)
     pubs = Publication.all
     pubs = pubs.filter_by_title(params[:title]) if params[:title]
+    pubs = pubs.filter_by_price_floor(params[:price_floor]) if params[:price_floor]
+    pubs = pubs.filter_by_price_ceil(params[:price_ceil]) if params[:price_ceil]
     pubs
   end
 
