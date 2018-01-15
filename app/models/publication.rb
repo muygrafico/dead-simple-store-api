@@ -17,7 +17,14 @@ class Publication < ApplicationRecord
   has_many :comments
   belongs_to :user
 
-  def search(params)
-    result = self.where('title like ?'), params[:title] if params[:title]
+  scope :filter_by_title, -> (keyword) {
+    where('title like ?', "%#{ keyword }%")
+  }
+
+  def self.search(params)
+    pubs = Publication.all
+    pubs = pubs.filter_by_title(params[:title]) if params[:title]
+    pubs
   end
+
 end

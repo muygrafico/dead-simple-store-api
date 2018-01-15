@@ -2,8 +2,16 @@ class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :update, :destroy]
 
   def index
-    @publications = Publication.all
-    render json: @publications
+    # @publications = Publication.all
+    # if params[:title].nil?
+    #   @publications = Publication.all
+    #   render json: @publications
+    # else
+    #   @publications ||= Publication.search(params)
+    #   render json: @publications
+    # end
+    @publications = Publication.search(params)
+    render json: @publications, adapter: :json
   end
 
   def create
@@ -19,8 +27,6 @@ class PublicationsController < ApplicationController
   def show
    render json: @publication, adapter: :json
   end
-
-
 
   private
 
