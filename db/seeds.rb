@@ -15,11 +15,3 @@ User.create(
     user_id: 1
   )
 end
-
-# 10.times do
-#   List.create!(
-#     name: Faker::Company.buzzword,
-#     shared_with: Faker::Internet.email,
-#     user_id: 3
-#   )
-# end
