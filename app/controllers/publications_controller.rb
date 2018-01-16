@@ -20,6 +20,14 @@ class PublicationsController < ApplicationController
    render json: @publication, adapter: :json
   end
 
+  def update
+    if @publication.update_attributes(publication_params)
+      render json: {'status': 'publication updated!'}
+    else
+      render json: {'status': 'publication was not updated'}
+    end
+  end
+
   def destroy
     if @publication.destroy
       render json: {'status': 'publication deleted!'}

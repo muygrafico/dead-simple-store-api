@@ -1,9 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :set_todo, only: [:edit, :update, :destroy]
-
-  def new
-    @photo = Photo.new
-  end
+  before_action :set_todo, only: [:update, :destroy]
 
   def create
     @photo = Photo.new(photo_params)
@@ -12,9 +8,6 @@ class PhotosController < ApplicationController
     else
       render json: {'status': 'photo not created'}
     end
-  end
-
-  def edit
   end
 
   def update
