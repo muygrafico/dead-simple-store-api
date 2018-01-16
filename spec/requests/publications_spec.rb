@@ -1,7 +1,7 @@
 # spec/requests/publications_spec.rb
 require 'rails_helper'
 
-RSpec.describe 'Locations API' do
+RSpec.describe 'Publications Response' do
 
   let!(:user) { create(:user, email: 'example@email.com') }
   let!(:publications) { create_list(:publication, 10, user_id: user.id) }
