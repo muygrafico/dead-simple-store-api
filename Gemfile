@@ -17,24 +17,29 @@ gem 'jbuilder', '~> 2.5'
 gem 'active_model_serializers', '~> 0.10.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-gem 'bcrypt', '~> 3.1.7'
 #An easy way to keep your users' passwords secure.
-gem 'figaro'
+gem 'bcrypt', '~> 3.1.7'
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
-gem 'jwt'
+gem 'figaro'
 # A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 # JSON Web Tokens are an open, industry standard RFC 7519
 # method for representing claims securely between two parties.
-gem 'shrine'
+gem 'jwt'
 # File Attachment toolkit for Ruby applications
-gem 'simple_command'
+gem 'shrine'
 # A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
-gem 'aws-sdk-s3', '~> 1.2'
+gem 'simple_command'
 # For Amazon S3 storage
+gem 'aws-sdk-s3', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+# Pagination library for Rails, Sinatra, Merb, DataMapper, and more
+gem 'will_paginate'
+# Paginate in your headers, not in your response body.
+# This follows the proposed RFC-5988 standard for Web linking.
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +56,8 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the background.
+  #Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
