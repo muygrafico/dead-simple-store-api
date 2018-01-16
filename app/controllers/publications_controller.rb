@@ -20,6 +20,14 @@ class PublicationsController < ApplicationController
    render json: @publication, adapter: :json
   end
 
+  def destroy
+    if @publication.destroy
+      render json: {'status': 'publication deleted!'}
+    else
+      render json: {'status': 'publication was not deleted'}
+    end
+  end
+
   private
 
   def publication_params
