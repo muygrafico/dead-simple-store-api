@@ -1,9 +1,5 @@
 class PhotosController < ApplicationController
-  def index
-    @photos = Photo.all
-    render json: @photos, adapter: :json
-
-  end
+  before_action :set_todo, only: [:edit, :update, :destroy]
 
   def new
     @photo = Photo.new
@@ -19,19 +15,29 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @photo = Photo.find(params[:id])
-end
+  end
 
-def update
-    @photo = Photo.find(params[:id])
+  def update
     if @photo.update_attributes(photo_params)
-        render json: {'status': 'photo edited!'}
+      render json: {'status': 'photo edited!'}
     else
       render json: {'status': 'photo was not edited'}
     end
-end
+  end
+
+  def destroy
+    if @photo.destroy
+      render json: {'status': 'photo deleted!'}
+    else
+      render json: {'status': 'photo was not deleted'}
+    end
+  end
 
   private
+
+  def set_todo
+    @photo = Photo.find(params[:id])
+  end
 
   def photo_params
     process_image
@@ -39,7 +45,6 @@ end
   end
 
   def process_image
-    params[:photo][:publication_id] = 1
     params[:photo][:image] = Photo.process_base64(params[:photo][:image])
   end
 end
