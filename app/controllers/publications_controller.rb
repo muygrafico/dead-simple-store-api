@@ -3,7 +3,7 @@ class PublicationsController < ApplicationController
 
   def index
     @publications = Publication.search(params)
-    render json: @publications, adapter: :json
+    paginate json: @publications, adapter: :json
   end
 
   def create
