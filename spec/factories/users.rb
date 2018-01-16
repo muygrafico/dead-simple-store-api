@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: users
@@ -10,13 +11,15 @@
 #  updated_at      :datetime         not null
 #
 
-class User < ApplicationRecord
-  has_secure_password
-  has_many :publications
-  has_many :comments
+FactoryBot.define do
 
-  validates :email, uniqueness: true
+  sequence :spy_email do |n|
+    "00#{n}example@mail.com"
+  end
 
-  #encrypt password
-   has_secure_password
+  factory :user do
+    name { Faker::StarWars.character }
+    email { Faker::Internet.email }
+    password '123123123'
+  end
 end

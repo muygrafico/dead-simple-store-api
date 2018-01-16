@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180112163455) do
   create_table "publications", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.string "contactnumber"
+    t.string "contact_number"
     t.integer "price"
     t.bigint "user_id"
     t.datetime "created_at", null: false

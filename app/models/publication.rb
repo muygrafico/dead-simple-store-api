@@ -2,14 +2,14 @@
 #
 # Table name: publications
 #
-#  id            :integer          not null, primary key
-#  title         :string
-#  body          :text
-#  contactnumber :string
-#  price         :integer
-#  user_id       :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id             :integer          not null, primary key
+#  title          :string
+#  body           :text
+#  contact_number :string
+#  price          :integer
+#  user_id        :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class Publication < ApplicationRecord

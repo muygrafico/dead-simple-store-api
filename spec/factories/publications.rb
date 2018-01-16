@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: publications
@@ -12,8 +13,14 @@
 #  updated_at     :datetime         not null
 #
 
-class PublicationSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :price
-   has_many :photos
-   has_many :comments
+# spec/factories/publications.rb
+
+FactoryBot.define do
+  factory :publication do
+    title { Faker::Lorem.word }
+    body { Faker::Lorem.paragraphs }
+    user_id 1
+    contact_number { Faker::PhoneNumber.cell_phone }
+    price { Faker::Number.number(6) }
+  end
 end
