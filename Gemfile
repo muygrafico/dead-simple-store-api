@@ -13,28 +13,26 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-#Efficient and convenient JSON API library for ruby.
-# gem 'jsonapi-rails'
-# gem 'jsonapi-resources'
+# Use ActiveModel has_secure_password
 gem 'active_model_serializers', '~> 0.10.0'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+#An easy way to keep your users' passwords secure.
+gem 'figaro'
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem 'jwt'
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 # JSON Web Tokens are an open, industry standard RFC 7519
 # method for representing claims securely between two parties.
-gem 'jwt'
-# A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
+gem 'shrine'
+# File Attachment toolkit for Ruby applications
 gem 'simple_command'
-gem 'figaro'
-
-gem "shrine"
-gem "aws-sdk-s3", "~> 1.2" # for Amazon S3 storage
-
+# A simple, standardized way to build and use Service Objects (aka Commands) in Ruby
+gem 'aws-sdk-s3', '~> 1.2'
+# For Amazon S3 storage
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
