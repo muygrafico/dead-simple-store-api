@@ -43,6 +43,7 @@ gem 'api-pagination'
 # For Heroku Debbuging: Makes running your Rails app easier. Based on the ideas behind 12factor.net
 gem 'rails_12factor', group: :production
 
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,7 +54,6 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'database_cleaner'
 end
 
