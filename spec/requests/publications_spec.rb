@@ -16,10 +16,9 @@ RSpec.describe 'Publications Response' do
     it 'responds with JSON with JWT' do
       jwt = login_user(user)
       get '/publications', headers: { Authorization: "Bearer #{jwt}" }
-      # byebug
       publicationsAll = JSON.parse response.body
       expect(publicationsAll['publications'].size).to eq(10)
-
     end
+
   end
 end

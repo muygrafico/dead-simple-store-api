@@ -14,7 +14,7 @@
 !/tmp/.keep
 .DS_Store
 .byebug_history
-/cache
+/cache/*
 
 # Ignore application configuration
 /config/application.yml
