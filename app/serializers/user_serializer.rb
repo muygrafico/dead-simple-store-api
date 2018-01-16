@@ -10,14 +10,6 @@
 #  updated_at      :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  email: MyString
-  password_digest: MyString
-
-two:
-  name: MyString
-  email: MyString
-  password_digest: MyString
+class UserSerializer < ActiveModel::Serializer
+  attributes :name
+end

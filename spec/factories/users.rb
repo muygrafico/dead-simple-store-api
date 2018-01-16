@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: users
@@ -10,14 +11,15 @@
 #  updated_at      :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+FactoryBot.define do
 
-one:
-  name: MyString
-  email: MyString
-  password_digest: MyString
+  sequence :spy_email do |n|
+    "00#{n}example@mail.com"
+  end
 
-two:
-  name: MyString
-  email: MyString
-  password_digest: MyString
+  factory :user do
+    name { Faker::StarWars.character }
+    email { Faker::Internet.email }
+    password '123123123'
+  end
+end
