@@ -1,0 +1,516 @@
+{
+	"info": {
+		"name": "dead-simple-store-api",
+		"_postman_id": "8356eb7d-d0f6-242f-f484-ec7e49097363",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "publications",
+			"description": "",
+			"item": [
+				{
+					"name": "create publication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"publication\": { \n\t  \"price\": \"20000\",\n\t  \"title\": \"ipod 3g 64gb\",\n\t  \"contact_number\": \"3006548762\",\n\t  \"body\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/publications",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"publications"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "publication show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/publications/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"publications",
+								"1"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "publications index ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "95104d25-7ee9-4f55-81b0-83a89eee366e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/publications?title=0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"publications"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "0",
+									"equals": true
+								}
+							]
+						},
+						"description": "all publication"
+					},
+					"response": []
+				},
+				{
+					"name": "publications search ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "95104d25-7ee9-4f55-81b0-83a89eee366e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/publications?title=India",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"publications"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "India",
+									"equals": true
+								}
+							]
+						},
+						"description": "publication with title param"
+					},
+					"response": []
+				},
+				{
+					"name": "publications search with price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "95104d25-7ee9-4f55-81b0-83a89eee366e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/publications?price_floor=1&?price_ceil=20000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"publications"
+							],
+							"query": [
+								{
+									"key": "price_floor",
+									"value": "1",
+									"equals": true
+								},
+								{
+									"key": "?price_ceil",
+									"value": "20000",
+									"equals": true
+								}
+							]
+						},
+						"description": "publication with title and price param"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authentication",
+			"description": "",
+			"item": [
+				{
+					"name": "authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a239fd30-aaf0-4123-82a6-a4912ee9b2e3",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.auth_token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "example@mail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authenticate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "fail authentication",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a239fd30-aaf0-4123-82a6-a4912ee9b2e3",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.auth_token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "example@mail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authenticate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "photos",
+			"description": "",
+			"item": [
+				{
+					"name": "delete photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"photo\": { \n\t  \"title\": \"Alejo\",\n\t  \"publication_id\": \"1\",\n\t  \"image\": \n\t  { \n\t    \"data\": {{base64Image}}, \n\t    \"filename\": \"avatar.jpg\", \n\t    \"content_type\": \"image/jpg\" \n\t  }\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/photos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"photo\": { \n\t  \"title\": \"Alejo\",\n\t  \"publication_id\": \"1\",\n\t  \"image\": \n\t  { \n\t    \"data\": {{base64Image}}, \n\t    \"filename\": \"avatar.jpg\", \n\t    \"content_type\": \"image/jpg\" \n\t  }\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/photos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "all photos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/photos",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"photos"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"description": "",
+			"item": [
+				{
+					"name": "create comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": { \n\t  \"publication_id\": \"1\",\n\t  \"body\": \"This is a very nice comment!\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/comments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"comments"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
